@@ -1,4 +1,0 @@
-Em apenas uma arquivo de Visual Code (ou IDE de sua escolha) realize os 3 exercícios em abas separadas:
-1 - Realize 2 inputs de números no terminal e faça com que ele imprima a seguinte frase: A soma entre (1º número) e (2º número) é (resultado da soma entre eles)!
-2 - Realize o input de uma palavra qualquer (com mais de 4 letras) e faça com que o termina escreva ela na vertical
-3 - Realize 2 inputs de números no terminal e faça com que o 2º número seja elevado ao 1º número
