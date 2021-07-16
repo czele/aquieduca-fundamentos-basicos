@@ -5,4 +5,5 @@ n2=float(input('Digite a segunda nota: '))
 n3=float(input('Digite a terceira nota: '))
 n4=float(input('Digite a quarta nota: '))
 
-print(statistics.mean([n1, n2, n3, n4]))
+print('A média entre as quatro notas é: {}'.format(statistics.mean([n1, n2, n3, n4])))
+
