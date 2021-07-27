@@ -1,47 +1,52 @@
 from flask import Flask
 import requests
 from bs4 import BeautifulSoup
+from flask import Flask
+app = Flask(__name__)
 
-url = 'https://webscraper.io/test-sites/tables'
-print('\n\n======================\n\n')
-response = requests.get(url)
-#print (response)
+@app.route("/get", methods=['GET'])
+def get():
 
-html_string = response.text
-#print(html_string)
+    url = 'https://webscraper.io/test-sites/tables'
+    print('\n\n======================\n\n')
+    response = requests.get(url)
+    #print (response)
 
-soup = BeautifulSoup(html_string, "html.parser")
-#print(soup)
+    html_string = response.text
+    #print(html_string)
 
-tablerow = soup.find_all('tr')
-#print(tablerow[1])
+    soup = BeautifulSoup(html_string, "html.parser")
+    #print(soup)
 
-tabledata = tablerow[2].find_all('td')
-#print(tabledata)
+    tablerow = soup.find_all('tr')
+    #print(tablerow[1])
 
-user ={
-    "numero":"",
-    "pnome":"",
-    "snome":"",
-    "user":""
-}
-#print(user)
+    tabledata = tablerow[2].find_all('td')
+    #print(tabledata)
 
-listafiltrado = []
+    user ={
+        "numero":"",
+        "pnome":"",
+        "snome":"",
+        "user":""
+    }
+    #print(user)
 
-for elemento in tabledata:
-    # filtrado = str(elemento).replace("<td>","")
-    # filtrado = filtrado.replace("</td>","")
-    # #print(filtrado)
-    filtrado = elemento.text
-    #print(filtrado)
-    listafiltrado.append(filtrado)
-#print(listafiltrado)
+    listafiltrado = []
+
+    for elemento in tabledata:
+        # filtrado = str(elemento).replace("<td>","")
+        # filtrado = filtrado.replace("</td>","")
+        # #print(filtrado)
+        filtrado = elemento.text
+        #print(filtrado)
+        listafiltrado.append(filtrado)
+    #print(listafiltrado)
 
 
 
-user["numero"]=listafiltrado[0]
-user["pnome"]=listafiltrado[1]
-user["snome"]=listafiltrado[2]
-user["user"]=listafiltrado[3]
-print(user)
+    user["numero"]=listafiltrado[0]
+    user["pnome"]=listafiltrado[1]
+    user["snome"]=listafiltrado[2]
+    user["user"]=listafiltrado[3]
+    print(user)
