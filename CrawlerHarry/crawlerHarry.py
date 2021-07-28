@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def get():
+    print('\n\n======================\n\n')
     url = 'https://books.toscrape.com/'
 
     header = {
@@ -30,7 +31,33 @@ def get():
 
     resposta = requests.get(url, headers=header)
     html_string = resposta.text
-    print(html_string)
+    sopa = BeautifulSoup(html_string, "html.parser")
+    #print(sopa)
+    recheio = sopa.find_all('ol', {"class": "row"})
+    #print(recheio[0])
+    lnome = recheio[0].find_all('h3')
+    print(lnome)
+    
+    #print(lista)
+
+    # modelo = {
+    #    "titulo": "",
+    #     "preço" : ""
+    # }
+
+    # livro = []
+
+    # for liv in lnome:
+    #     filtrado = liv.text
+    #     livro.append(filtrado)
+    
+    # print(livro)
+        
+
+
+
+
+
     
     return { 'status': 'ok' }
     
