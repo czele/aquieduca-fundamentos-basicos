@@ -29,7 +29,8 @@ def get():
     }
 
     resposta = requests.get(url, headers=header)
-    #return str(resposta.text)
-    sopa = BeautifulSoup(resposta.text, "html.parser")
-    print(sopa)
+    html_string = resposta.text
+    print(html_string)
+    
+    return { 'status': 'ok' }
     
