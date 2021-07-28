@@ -5,7 +5,7 @@ app.config['TESTING'] = True
 
 @app.route("/get", methods=['GET'])
 def get():
-    return 'Listado com sucesso!'
+    return 'Listado com sucesso!!!'
 
 @app.route("/post", methods=['POST'])
 def post():
